@@ -127,10 +127,7 @@ public class Testing
            
 
         }
-        //for (int i = n; i > 0; i--)
-        //{
-        //    //Console.WriteLine(alpha.Substring(0, i));
-        //}
+       
     }
 
  
@@ -236,13 +233,13 @@ public class Testing
     //}
 }
 
-    public class mainprog2
+public class mainprog2
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-                Testing ty = new Testing();
-       
-        //int[] num = { 3, 9, 7, 3 };
+        Testing ty = new Testing();
+
+        int[] num = { 3, 9, 7, 3 };
         //int[] num2 = new int[4];
         //out num2;
 
@@ -266,9 +263,9 @@ public class Testing
         //Diamond();
         //NumberTriangle(5);
         //NumberDiamond(6);
+        //evenlyDivides(12);
 
-
-        //countallDigit();
+        //countallDigit(12);
         //findLastDigit();
         //oddOrEven();
         //reviseNumber();
@@ -277,11 +274,22 @@ public class Testing
         //int val = GCD(60, 36);  //Greatest of Common Divisor
         //FindAllDivisorOfNumber(24);
         //bool val = isPrimeorNot(35);
-          PrimeorNot();
+        //PrimeorNot();
+        //perfectNumber(36);
+        //LargestNumberinArray(1,2,3,4,5);
         //Console.WriteLine(val);
+        //SecondLargestNumber(1,5,9,2,6,1,0);
+        //SecondSmallestNumber(1,5,9,2,6,1,0);
+        //RemoveDuplicate(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7, 7);
+        //printTables(9);
+        //numberofDigits(15643);
+        //armstrongNumber(153);
+        //ReverseEquation("2*5/3-1+70");
+        //print_divisors(36);
 
 
 
+        //************************************************//   Practice problems    //*************************************************************
 
         //halfDiamond
         static void halfDiamond()
@@ -290,8 +298,8 @@ public class Testing
             int n = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < n * 2; i++)
-            { 
-              int val =  i > n ? 2 * n - i :i;
+            {
+                int val = i > n ? 2 * n - i : i;
 
                 for (int j = 0; j < val; j++)
                 {
@@ -313,7 +321,7 @@ public class Testing
             {
                 int val = i > n ? 2 * n - i : i;
                 int spaces = n - val;
-                for (int k = 0; k <spaces; k++)
+                for (int k = 0; k < spaces; k++)
                 {
                     Console.Write(" ");
                 }
@@ -349,7 +357,7 @@ public class Testing
 
         static void NumberDiamond(int n)
         {
-            for (int i = 1; i <= 2*n; i++)
+            for (int i = 1; i <= 2 * n; i++)
             {
                 int val = i > n ? 2 * n - i : i;
 
@@ -369,192 +377,36 @@ public class Testing
             }
         }
 
-        static void PrimeorNot() {
-            
-            int val = 9973;
+        static void PrimeorNot()
+        {
+
+            int val = 15;
             int n = (int)Math.Sqrt(val);
 
-            int n1 = (int)Math.Min(1,val);
+            int n1 = (int)Math.Min(1, val);
 
             int count = 0;
             for (int i = 1; i <= n; i++)
             {
-                if (val % i == 0) {
+                if (val % i == 0)
+                {
                     count++;
 
-                    if (val * i != i) {
+                    if (val * i != i)
+                    {
                         count++;
-                    }  
+                    }
                 }
             }
-            if (count > 2)
+            if (count > 2 || count == 1)
             {
                 Console.WriteLine("Number is Not Prime");
             }
-            else {
+            else
+            {
                 Console.WriteLine("Number is Prime");
             }
         }
-
-        //countallDigit
-        static void countallDigit()
-        {
-            Console.WriteLine("Enter a number");
-            int n = Convert.ToInt32(Console.ReadLine());
-            int count = 0;
-            while (n > 0)
-            {
-                n = n / 2;
-                count++;
-            }
-            Console.WriteLine("The digits count are " + count);
-            Console.ReadKey();
-        }
-
-        //findLastDegit
-        static void findLastDigit()
-        {
-
-            Console.WriteLine("Enter a number");
-            int n = Convert.ToInt32(Console.ReadLine());
-            int Last = 0;
-            Last = n % 10;
-            Console.WriteLine("The Last digits of the number is " + Last);
-        }
-
-
-        //oddOrEven
-        static void oddOrEven()
-        {
-            Console.WriteLine("Enter a number");
-            int n = Convert.ToInt32(Console.ReadLine());
-
-
-            if (n % 2 == 0)
-                Console.WriteLine("The number is even");
-
-            else
-                Console.WriteLine("The number is odd"); 
-        }
-
-        static void reviseNumber()
-        {
-            
-            Console.WriteLine("Enter a number");
-            int n = Convert.ToInt32(Console.ReadLine());
-            int rem = 0;
-            int rev = 0;
-            string val = "";
-            while (n > 0)
-            {
-                rem = n % 10;
-                n = n / 10;
-                //val += rem;
-                rev = rev * 10 + rem;
-            }
-            Console.WriteLine("The revised value is " + rev);
-            Console.ReadKey();
-        }
-
-        static double FindPowerOfNumber(double x, int n)
-        {
-            double ans = 1.0;
-            long nn = n;
-            if (nn < 0){
-                nn = -1 * nn;
-            } 
-
-            while (nn > 0){
-                if (nn % 2 == 1)
-                {
-                    ans = ans * x;
-                    nn = nn - 1;
-                }
-                else {
-                    x = x * x;
-                    nn = nn / 2;
-                }
-            }
-            if (n < 0)
-            {
-                ans = (double)(1.0) / (double)(ans);
-            }
-            return ans;
-        }
-
-        static int GCD(int A,int B)
-        {
-            int divisor = 0; 
-            int dividend = 0;
-            int n = 1;
-
-            if (A > B)
-            {
-                dividend = A; divisor = B;
-            }
-            if (B > A)
-            {
-                dividend = B; divisor = A;
-            }
-            while (n != 0) {
-                n = dividend % divisor;
-                if (n != 0)
-                {
-                    dividend = divisor;
-                    divisor = n;
-
-                }
-            }
-            
-            return divisor;
-        }
-
-        static void FindAllDivisorOfNumber(int A)
-        {
-            
-            for (int i = 1; i <= A; i++)
-            {
-                if (A % i == 0)
-                {
-                    Console.Write(i + " ");
-                }
-            }
-        }
-
-        //static bool isPrimeorNot(int n)
-        //{
-        //    int i = 2;
-        //    // corner cases 
-        //    if (n == 0 || n == 1)
-        //    {
-        //        return false;
-        //    }
-
-        //    // Checking Prime 
-        //    if (n == i)
-        //        return true;
-
-        //    // base cases 
-        //    while (i != 0)
-        //    {
-        //        if (n % i == 0)
-        //        {
-        //            return false;
-        //        }
-        //        i++;
-        //    }
-            
-        //    return isPrimeorNot(n);
-        //}
-
-
-        //static void reverseNumberArrary(int[] arr)
-        //{
-        //    for (int i = arr.Length; i >=0 ; i--)
-        //    {
-        //        num2[0] = arr[i - 1];
-        //    }
-        //}
 
         //Factorial
 
@@ -571,7 +423,389 @@ public class Testing
             }
         }
 
-        //Leedcode problem 1
+        static void reverseNumberArrary(int[] arr)
+        {
+            for (int i = arr.Length; i >= 0; i--)
+            {
+                //num2[0] = arr[i - 1];
+            }
+        }
+
+        //static void evenlyDivides(int N)
+        //{
+        //    string a = N.ToString();
+        //    int count = 0;
+        //    foreach (var i in a)
+        //    {
+        //        if ((int)i == 0)
+        //        {
+        //            continue;
+        //        }
+        //        else if (N % (int)i == 0)
+        //        {
+        //            count += 1;
+        //        }
+        //    }
+        //    Console.WriteLine(count);
+        //}
+
+        //**************************************//   DSA code sheet preparation solutions    //****************************************************
+
+        //evenlyDivides
+        static int evenlyDivides(int N)
+        {
+            int temp = N, count = 0;
+            while (temp != 0)
+            {
+                // extract the last digit
+                int d = temp % 10;
+                temp = temp / 10;
+
+                // check if d divides N completely and is not zero
+                if (d > 0 && N % d == 0)
+                    count++;
+            }
+            return count;
+        }
+
+        static void ReverseEquation(string s)
+        {
+            //"2*5/3-1+70"
+            Stack<string> stk = new Stack<string>();
+            string current = "";
+            foreach (char c in s)
+            {
+                //if (char.IsLetterOrDigit(c))
+                //{
+                    current += c;
+                    stk.Push(current);
+                current = "";
+                //current += c;
+                //}
+                //else
+                //{
+                //    if (!string.IsNullOrEmpty(current))
+                //    {
+                //        stk.Push(current);
+                //        current = "";
+                //    }
+                //    stk.Push(c.ToString());
+                //}
+            }
+            //if (!string.IsNullOrEmpty(current))
+            //{
+            //    stk.Push(current);
+            //}
+             Console.WriteLine(string.Concat(stk.ToArray()));
+        }
+
+
+        static void printTables(int n) 
+        { 
+            List<int> dt = new List<int>();
+            for (int i = 1; i <= 10; i++) { 
+              dt.Add(i*n);
+            }
+            foreach (int i in dt)
+            {
+                Console.Write(i+",");
+            }
+            dt.Sort();
+        }
+
+        static void numberofDigits(int a)
+        {
+            int n = 0;
+
+            while (a > 0) {
+                n++;
+                a=a/10;
+            }
+            Console.WriteLine(n);
+        }
+
+        static void armstrongNumber(int n)
+        {
+            int rem = 0;
+            int sum = 0;
+            int temp = n;
+            int digit = 0;
+
+            while (temp > 0)
+            {
+                temp = temp / 10;
+                digit++;
+            }
+            temp = n;
+
+            while (temp > 0)
+            {
+                rem = temp % 10;
+                sum = sum + (int)Math.Pow(rem, digit);
+              temp = temp / 10;
+            }
+            if (sum == n)
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+
+        }
+
+        static void print_divisors(int n)
+        {
+            List<int> val = new List<int>();
+
+            for (int i = 1; i * i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    val.Add(i);
+                    if (n / i != i)
+                    {
+                        val.Add(n / i);
+                    }
+                }
+            }
+            val.Sort();
+            foreach (int r in val)
+            {
+                Console.Write(r + " ");
+            }
+        }
+
+        //findLastDegit
+        static void findLastDigit()
+            {
+
+                Console.WriteLine("Enter a number");
+                int n = Convert.ToInt32(Console.ReadLine());
+                int Last = 0;
+                Last = n % 10;
+                Console.WriteLine("The Last digits of the number is " + Last);
+            }
+
+            //oddOrEven
+            static void oddOrEven()
+            {
+                Console.WriteLine("Enter a number");
+                int n = Convert.ToInt32(Console.ReadLine());
+
+
+                if (n % 2 == 0)
+                    Console.WriteLine("The number is even");
+
+                else
+                    Console.WriteLine("The number is odd");
+            }
+
+            static void reviseNumber()
+            {
+
+                Console.WriteLine("Enter a number");
+                int n = Convert.ToInt32(Console.ReadLine());
+                int rem = 0;
+                int rev = 0;
+                string val = "";
+                while (n > 0)
+                {
+                
+                    rem = n % 10;
+                    n = n / 10;
+                    //val += rem;
+                    rev = rev * 10 + rem;
+                }
+                Console.WriteLine("The revised value is " + rev);
+                Console.ReadKey();
+            }
+
+            static double FindPowerOfNumber(double x, int n)
+            {
+                double ans = 1.0;
+                long nn = n;
+                if (nn < 0)
+                {
+                    nn = -1 * nn;
+                }
+
+                while (nn > 0)
+                {
+                    if (nn % 2 == 1)
+                    {
+                        ans = ans * x;
+                        nn = nn - 1;
+                    }
+                    else
+                    {
+                        x = x * x;
+                        nn = nn / 2;
+                    }
+                }
+                if (n < 0)
+                {
+                    ans = (double)(1.0) / (double)(ans);
+                }
+                return ans;
+            }
+
+            //Greatest Common Divisor
+            static int GCD(int A, int B)
+            {
+                int divisor = 0;
+                int dividend = 0;
+                int n = 1;
+
+                if (A > B)
+                {
+                    dividend = A; divisor = B;
+                }
+                if (B > A)
+                {
+                    dividend = B; divisor = A;
+                }
+                while (n != 0)
+                {
+                    n = dividend % divisor;
+                    if (n != 0)
+                    {
+                        dividend = divisor;
+                        divisor = n;
+
+                    }
+                }
+
+                return divisor;
+            }
+
+            static void FindAllDivisorOfNumber(int A)
+            {
+
+                for (int i = 1; i <= A; i++)
+                {
+                    if (A % i == 0)
+                    {
+                        Console.Write(i + " ");
+                    }
+                }
+            }
+
+            static int perfectNumber(int n)
+            {
+                int sum = 0;
+                for (int i = 1; i < Math.Sqrt(n); i++)
+                {
+                    if (n % i == 0)
+                    {
+                        sum += i;
+
+                        if (n / i != n)
+                        {
+                            sum += n / i;
+                        }
+                    }
+                }
+
+                return sum == n ? 1 : 0;
+                //return sum;
+            }
+
+            static void LargestNumberinArray(params int[] n)
+            {
+                int largest = n[0];
+                for (int i = 0; i < n.Length; i++)
+                {
+                    if (n[i] > largest)
+                    {
+                        largest = n[i];
+                    }
+                }
+                Console.WriteLine(largest);
+
+            }
+
+            static void SecondLargestNumber(params int[] n)
+            {
+                int largest = n[0];
+                int secondlargest = int.MinValue;
+                for (int i = 0; i < n.Length; i++)
+                {
+                    if (n[i] > largest)
+                    {
+                        secondlargest = largest;
+                        largest = n[i];
+                    }
+                    else if (n[i] < largest && n[i] > secondlargest)
+                    {
+                        secondlargest = n[i];
+                    }
+
+                }
+                Console.WriteLine(secondlargest);
+            }
+
+            static void SecondSmallestNumber(params int[] n)
+            {
+                int smallest = n[0];
+                int secondsmallest = int.MaxValue;
+                for (int i = 0; i < n.Length; i++)
+                {
+                    if (n[i] < smallest)
+                    {
+                        secondsmallest = smallest;
+                        smallest = n[i];
+                    }
+                    else if (n[i] > smallest && n[i] < secondsmallest)
+                    {
+                        secondsmallest = n[i];
+                    }
+
+                }
+                Console.WriteLine(secondsmallest);
+            }
+
+            static void RemoveDuplicate(params int[] arr)
+            {
+                int i = 0;
+
+                for (int j = 1; j < arr.Length; j++)
+                {
+                    if (arr[i] != arr[j])
+                    {
+                        arr[i + 1] = arr[j];
+                        i++;
+                    }
+                }
+                Console.WriteLine(i + 1);
+
+            }
+
+
+            static int[] testFunc(int[] val, int temp)
+            {
+                int num = 1;
+
+                for (int i = 0; i < val.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        num = i;
+                    }
+                    for (int j = num; j < val.Length - 1; j++)
+                    {
+                        if (temp == (val[i] + val[j]))
+                        {
+                            Console.WriteLine(i);
+                            Console.WriteLine(j);
+                        }
+                    }
+                }
+                return new int[] { 1, 2 };
+            }
+
+            //**************************************************     //Leedcode problem 1    //****************************************************
 
             static int[] addsum(int[] num, int target)
             {
@@ -589,7 +823,7 @@ public class Testing
                         secondcount++;
                     }
                     else
-                    { 
+                    {
                         firstcount++;
                         secondcount = firstcount + 1;
                     }
@@ -599,4 +833,3 @@ public class Testing
             }
         }
     }
-
